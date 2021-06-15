@@ -9,33 +9,30 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-
-
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                <div class="card" style="width: 20rem; background-color:lightblue;text-align:left;color:darkgreen; font-family:Calibri">
-                    <img src="https://www.menshairstylestoday.com/wp-content/uploads/2020/07/How-Much-Do-Barbers-Make.jpg" style="height:200px; width:200px;" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <b>@Html.DisplayFor(modelItem => item.Service_Namee)</b><br />
-                        <b>@Html.DisplayFor(modelItem => item.Service_Price)</b><br />
-                        <b>@Html.DisplayFor(modelItem => item.Service_Time)</b><br />
-                        <b><hr class="dropdown-divider"></b>
-                        <b> @Html.DisplayFor(modelItem => item.Service_Description)</b><br />
-                        <p class="card-text"></p>
-                        <a class="btn btn-primary">ADD TO CART</a>
-                    </div>
+@foreach (var item in Model)
+{
+    <div class="card d-block w-100" style="width: 300px; background-color:black;text-align:left;color:gold; font-family:Calibri;display:inline-block;">
+        <img src="~/Images/Image1.jpg" style="height:200px; width:300px;" class="card-img-top" alt="...">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6" style="margin-top: 15px;margin-left:5px;">
+                    <b>Name:</b>
+                    @Html.DisplayFor(modelItem => item.Service_Namee)<br />
+                    <b>Price:</b>
+                    @Html.DisplayFor(modelItem => item.Service_Price) <p style="display:inline-block">INR</p> <br />
+                    <b>Duration:</b>
+                    @Html.DisplayFor(modelItem => item.Service_Time) <p style="display:inline-block">minutes</p>
                 </div>
-
-               
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Service_ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Service_ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Service_ID })
-            </td>
-        </tr>
-    }
-
+                <div class="col-md-1" style="margin-top:25px;">
+                    <a class="btn btn-primary">ADD TO CART</a>
+                </div>
+            </div>
+            <hr class="dropdown-divider">
+            <div style="margin-left:18px;margin-right:15px;margin-top:10px;color:gainsboro">
+                @Html.DisplayFor(modelItem => item.Service_Description)<br /><br />
+            </div>
+            <p class="card-text"></p>
+        </div>
+    </div>
+}
+    
