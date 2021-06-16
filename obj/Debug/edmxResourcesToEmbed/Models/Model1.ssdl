@@ -43,6 +43,7 @@
     <Property Name="Service_Price" Type="float" Nullable="false" />
     <Property Name="Service_Time" Type="int" Nullable="false" />
     <Property Name="Service_Description" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Service_Image" Type="varchar" MaxLength="150" />
   </EntityType>
   <EntityContainer Name="ProjectHeavenModelStoreContainer">
     <EntitySet Name="AdminTable" EntityType="Self.AdminTable" Schema="dbo" store:Type="Tables" />

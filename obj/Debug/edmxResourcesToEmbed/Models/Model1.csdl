@@ -43,6 +43,7 @@
     <Property Name="Service_Price" Type="Double" Nullable="false" />
     <Property Name="Service_Time" Type="Int32" Nullable="false" />
     <Property Name="Service_Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Service_Image" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityContainer Name="ProjectHeavenEntities2" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="AdminTables" EntityType="Self.AdminTable" />

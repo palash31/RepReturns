@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -47,10 +48,14 @@ namespace The_New_Paradise.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Service_ID,Service_Namee,Service_Price,Service_Time,Service_Description")] ServicesTable servicesTable)
+        public ActionResult Create([Bind(Include = "Service_ID,Service_Namee,Service_Price,Service_Time,Service_Description")] ServicesTable servicesTable, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
+                string fileName = Path.GetFileName(file.FileName);
+                servicesTable.Service_Image = fileName;
+                string uPath = Path.Combine(Server.MapPath("~/Upload"), fileName);
+                file.SaveAs(uPath);
                 db.ServicesTables.Add(servicesTable);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -79,10 +84,14 @@ namespace The_New_Paradise.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Service_ID,Service_Namee,Service_Price,Service_Time,Service_Description")] ServicesTable servicesTable)
+        public ActionResult Edit([Bind(Include = "Service_ID,Service_Namee,Service_Price,Service_Time,Service_Description")] ServicesTable servicesTable, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
+                string fileName = Path.GetFileName(file.FileName);
+                servicesTable.Service_Image = fileName;
+                string uPath = Path.Combine(Server.MapPath("~/Upload"), fileName);
+                file.SaveAs(uPath);
                 db.Entry(servicesTable).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

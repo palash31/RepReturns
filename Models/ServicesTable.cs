@@ -19,5 +19,6 @@ namespace The_New_Paradise.Models
         public double Service_Price { get; set; }
         public int Service_Time { get; set; }
         public string Service_Description { get; set; }
+        public string Service_Image { get; set; }
     }
 }

@@ -41,6 +41,7 @@
     <EntitySetMapping Name="ServicesTables">
       <EntityTypeMapping TypeName="ProjectHeavenModel.ServicesTable">
         <MappingFragment StoreEntitySet="ServicesTable">
+          <ScalarProperty Name="Service_Image" ColumnName="Service_Image" />
           <ScalarProperty Name="Service_ID" ColumnName="Service_ID" />
           <ScalarProperty Name="Service_Namee" ColumnName="Service_Namee" />
           <ScalarProperty Name="Service_Price" ColumnName="Service_Price" />
